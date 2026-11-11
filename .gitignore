@@ -1,0 +1,18 @@
+﻿
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Результаты сборки
+[Bb]in/
+[Oo]bj/
+
+# Временные файлы
+*.log
+*.tmp
+
+# Пакеты NuGet
+*.nupkg

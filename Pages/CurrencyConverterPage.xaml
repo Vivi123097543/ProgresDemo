@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ProgresDemo.Pages.CurrencyConverterPage"
+    Title="Конвертер валют">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <Label
+                Text="Конвертер валют"
+                FontSize="26"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Официальные курсы Национального банка Республики Беларусь"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                TextColor="Gray" />
+
+            <!-- Выбор даты -->
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Дата курса" FontAttributes="Bold" />
+
+                <DatePicker
+                    x:Name="RateDatePicker"
+                    Format="dd.MM.yyyy" />
+            </VerticalStackLayout>
+
+            <Button
+                Text="Получить курсы валют"
+                x:Name="LoadRatesButton"
+                Clicked="LoadRatesButton_Clicked" />
+
+            <!-- Таблица курсов -->
+            <Label
+                Text="Официальные курсы"
+                FontSize="20"
+                FontAttributes="Bold" />
+
+            <Border
+                Padding="12"
+                Stroke="#CCCCCC"
+                StrokeThickness="1">
+
+                <Label
+                    x:Name="RatesLabel"
+                    Text="Выберите дату и нажмите «Получить курсы валют»"
+                    FontSize="14"
+                    LineBreakMode="WordWrap" />
+            </Border>
+
+            <!-- Конвертация -->
+            <Label
+                Text="Конвертация"
+                FontSize="20"
+                FontAttributes="Bold" />
+
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Выберите валюту" FontAttributes="Bold" />
+
+                <Picker
+                    x:Name="CurrencyPicker"
+                    Title="Выберите валюту"
+                    SelectedIndexChanged="CurrencyPicker_SelectedIndexChanged">
+
+                    <Picker.Items>
+                        <x:String>Российский рубль (RUB)</x:String>
+                        <x:String>Евро (EUR)</x:String>
+                        <x:String>Доллар США (USD)</x:String>
+                        <x:String>Швейцарский франк (CHF)</x:String>
+                        <x:String>Китайский юань (CNY)</x:String>
+                        <x:String>Фунт стерлингов (GBP)</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Направление обмена" FontAttributes="Bold" />
+
+                <Picker
+                    x:Name="DirectionPicker"
+                    Title="Выберите направление">
+
+                    <Picker.Items>
+                        <x:String>BYN → иностранная валюта</x:String>
+                        <x:String>Иностранная валюта → BYN</x:String>
+                    </Picker.Items>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Введите сумму" FontAttributes="Bold" />
+
+                <Entry
+                    x:Name="AmountEntry"
+                    Placeholder="Например, 100"
+                    Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <Button
+                Text="Конвертировать"
+                x:Name="ConvertButton"
+                Clicked="ConvertButton_Clicked" />
+
+            <Border
+                Padding="15"
+                Stroke="#4A90E2"
+                StrokeThickness="1">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        Text="Результат"
+                        FontAttributes="Bold"
+                        FontSize="16" />
+
+                    <Label
+                        x:Name="ResultLabel"
+                        Text="Здесь появится результат"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        TextColor="#2874A6" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label
+                x:Name="StatusLabel"
+                FontSize="13"
+                TextColor="Gray"
+                HorizontalTextAlignment="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

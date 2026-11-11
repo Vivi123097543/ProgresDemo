@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ProgresDemo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ProgresDemo"
+    Title="ProgresDemo">
+
+    <FlyoutItem Title="Главная" Route="Main">
+        <ShellContent
+            Title="Главная"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Конвертер валют" Route="CurrencyConverter">
+        <ShellContent
+            x:Name="CurrencyConverterShellContent"
+            Title="Конвертер валют"
+            Route="CurrencyConverterPage" />
+    </FlyoutItem>
+
+</Shell>
